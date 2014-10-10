@@ -1,0 +1,32 @@
+The target system is: Linux -  - i486
+The host system is: Linux - 3.13.0-36-generic - x86_64
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/biorob/naoqi/worktree/local_nao_ros/build-v4/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2187164812/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2187164812.dir/build.make CMakeFiles/cmTryCompileExec2187164812.dir/build
+make[1]: Entering directory `/home/biorob/naoqi/worktree/local_nao_ros/build-v4/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/biorob/naoqi/worktree/local_nao_ros/build-v4/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2187164812.dir/CheckIncludeFiles.c.o
+/home/biorob/naoqi/linux64-nao-atom-cross-toolchain-1.14.5/cross/bin/i686-aldebaran-linux-gnu-gcc   --sysroot /home/biorob/naoqi/linux64-nao-atom-cross-toolchain-1.14.5//sysroot/ -pipe -fomit-frame-pointer -fno-align-jumps -fno-align-functions -fno-align-labels -fno-align-loops -m32 -mtune=generic -DOE_CROSS_BUILD    -o CMakeFiles/cmTryCompileExec2187164812.dir/CheckIncludeFiles.c.o   -c /home/biorob/naoqi/worktree/local_nao_ros/build-v4/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec2187164812
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2187164812.dir/link.txt --verbose=1
+/home/biorob/naoqi/linux64-nao-atom-cross-toolchain-1.14.5/cross/bin/i686-aldebaran-linux-gnu-gcc   --sysroot /home/biorob/naoqi/linux64-nao-atom-cross-toolchain-1.14.5//sysroot/ -pipe -fomit-frame-pointer -fno-align-jumps -fno-align-functions -fno-align-labels -fno-align-loops -m32 -mtune=generic -DOE_CROSS_BUILD   -Wl,--sysroot,/home/biorob/naoqi/linux64-nao-atom-cross-toolchain-1.14.5//sysroot/ CMakeFiles/cmTryCompileExec2187164812.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2187164812 -rdynamic 
+make[1]: Leaving directory `/home/biorob/naoqi/worktree/local_nao_ros/build-v4/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/biorob/naoqi/worktree/local_nao_ros/build-v4/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4097598102/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4097598102.dir/build.make CMakeFiles/cmTryCompileExec4097598102.dir/build
+make[1]: Entering directory `/home/biorob/naoqi/worktree/local_nao_ros/build-v4/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/biorob/naoqi/worktree/local_nao_ros/build-v4/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4097598102.dir/CheckFunctionExists.c.o
+/home/biorob/naoqi/linux64-nao-atom-cross-toolchain-1.14.5/cross/bin/i686-aldebaran-linux-gnu-gcc   --sysroot /home/biorob/naoqi/linux64-nao-atom-cross-toolchain-1.14.5//sysroot/ -pipe -fomit-frame-pointer -fno-align-jumps -fno-align-functions -fno-align-labels -fno-align-loops -m32 -mtune=generic -DOE_CROSS_BUILD -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec4097598102.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec4097598102
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4097598102.dir/link.txt --verbose=1
+/home/biorob/naoqi/linux64-nao-atom-cross-toolchain-1.14.5/cross/bin/i686-aldebaran-linux-gnu-gcc   --sysroot /home/biorob/naoqi/linux64-nao-atom-cross-toolchain-1.14.5//sysroot/ -pipe -fomit-frame-pointer -fno-align-jumps -fno-align-functions -fno-align-labels -fno-align-loops -m32 -mtune=generic -DOE_CROSS_BUILD -DCHECK_FUNCTION_EXISTS=pthread_create  -Wl,--sysroot,/home/biorob/naoqi/linux64-nao-atom-cross-toolchain-1.14.5//sysroot/ CMakeFiles/cmTryCompileExec4097598102.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4097598102 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/biorob/naoqi/worktree/local_nao_ros/build-v4/CMakeFiles/CMakeTmp'
+
+
