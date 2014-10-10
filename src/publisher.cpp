@@ -57,7 +57,7 @@ void Publisher::startPublishing(const std::string &sensorFileName)
 {
     ros::NodeHandle n;
     ros::Publisher chatter_pub = n.advertise<std_msgs::String>("nao_chatter", 1);
-    ros::Rate loop_rate(10);
+    ros::Rate loop_rate(5);
 
     while (ros::ok()){
             std_msgs::String msg;
