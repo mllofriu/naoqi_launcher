@@ -12,25 +12,20 @@
 # define ALCALL
 #endif
 
-extern "C"
-{
-  ALCALL int _createModule(boost::shared_ptr<AL::ALBroker> pBroker)
-  {
-    // init broker with the main broker instance
-    // from the parent executable
-    AL::ALBrokerManager::setInstance(pBroker->fBrokerManager.lock());
-    AL::ALBrokerManager::getInstance()->addBroker(pBroker);
+#define BOILERPLATE(x) \
+extern "C" \
+{ \
+  ALCALL int _createModule(boost::shared_ptr<AL::ALBroker> pBroker)\
+  {\
+    AL::ALBrokerManager::setInstance(pBroker->fBrokerManager.lock()); \
+    AL::ALBrokerManager::getInstance()->addBroker(pBroker); \
+    AL::ALModule::createModule<x>(pBroker, #x ); \
+    return 0; \
+  } \
+  ALCALL int _closeModule() \
+  { \
+    return 0; \
+  } \
+}
 
-    // create module instances
-    AL::ALModule::createModule<Publisher>(pBroker,"Publisher" );
-
-    
-    return 0;
-  }
-
-  ALCALL int _closeModule()
-  {
-    return 0;
-  }
-
-} // extern "C"
+BOILERPLATE(Publisher)
