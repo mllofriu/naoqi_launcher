@@ -12,6 +12,8 @@
 // ROS includes
 #include "ros/ros.h"
 #include "std_msgs/String.h"
+#include <camera_info_manager/camera_info_manager.h>
+#include <image_transport/image_transport.h>
 
 #include <alcommon/almodule.h>
 #include <alproxies/alvideodeviceproxy.h>
@@ -33,15 +35,17 @@ public:
                         const std::string &pName);
 
     virtual ~Publisher();
+    void init();
 
 private:
+    void publishImage();
+    void publishImages();
+    void publishInfo();
+    boost::shared_ptr<AL::ALVideoDeviceProxy> visionProxy;
+    image_transport::CameraPublisher camera_pub;
+    boost::shared_ptr<camera_info_manager::CameraInfoManager> cinfo_;
+    std::string name;
 
-  // Initialisation of ALMemory/DCM link
-  void init();
-
-  // Store sensor values.
-  std::vector<float> sensorValues;
-  boost::shared_ptr<AL::ALVideoDeviceProxy> visionProxy;
 };
 
 #endif // PUBLISHER_H

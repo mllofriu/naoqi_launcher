@@ -111,7 +111,7 @@ void Publisher::publishImage(){
 
     sensor_msgs::CameraInfoPtr
         ci(new sensor_msgs::CameraInfo(cinfo_->getCameraInfo()));
-    camera_pub.publish(msg, ci);
+    //camera_pub.publish(msg, ci);
     visionProxy->releaseImage(name);
 }
 
