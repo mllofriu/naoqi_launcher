@@ -8,6 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   image_transport
   camera_info_manager
+  nodelet
 )
 
 message(STATUS "Nao dir" ${NAOqi_DIR})
@@ -46,7 +47,7 @@ target_link_libraries(publisher
 )
 
 # Also create an executable to start and stop capture
-add_executable(testPublisher src/testPublisher.cpp)
-target_link_libraries(testPublisher 
-  ${NAOqi_LIBRARIES}
-)
+#add_executable(testPublisher src/testPublisher.cpp)
+#target_link_libraries(testPublisher 
+#  ${NAOqi_LIBRARIES}
+#)

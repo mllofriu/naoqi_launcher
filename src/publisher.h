@@ -41,6 +41,7 @@ private:
     void publishImage();
     void publishImages();
     void publishInfo();
+    void nodeletManager();
     boost::shared_ptr<AL::ALVideoDeviceProxy> visionProxy;
     image_transport::CameraPublisher camera_pub;
     boost::shared_ptr<camera_info_manager::CameraInfoManager> cinfo_;

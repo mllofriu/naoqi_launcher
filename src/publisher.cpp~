@@ -19,6 +19,7 @@
 
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/image_encodings.h>
+#include <nodelet/loader.h>
 
 #include <iostream>
 #include <fstream>
@@ -28,6 +29,8 @@
 using namespace std;
 
 using namespace AL;
+
+#define FRAMERATE 5
 
 /// <summary>
 /// Module to save current values to a file in each DCM iteration (each 10 ms)
@@ -61,7 +64,7 @@ void Publisher::init()
         visionProxy = boost::shared_ptr<ALVideoDeviceProxy>
            (new ALVideoDeviceProxy());
         int cam_index = 0;
-        name = visionProxy->subscribeCamera("ros_local_cam", cam_index, kQVGA, kYuvColorSpace, 30);
+        name = visionProxy->subscribeCamera("ros_local_cam", cam_index, kQVGA, kYuvColorSpace, FRAMERATE);
     } catch (const ALError& e) {
         std::cerr << "Could not create proxy: " << e.what() << std::endl; 
     }
@@ -76,13 +79,20 @@ void Publisher::init()
 
     // Create a publishing thread
     boost::thread publisherThread(boost::bind( &Publisher::publishImages, this ));
+    // Create the nodelet manager
+    boost::thread manangerThread(boost::bind( &Publisher::nodeletManager, this ));
+}
+
+void Publisher::nodeletManager(){
+    nodelet::Loader l;
+    ros::spin();
 }
 
 void Publisher::publishImages(){
-    ros::Rate loop_rate(30);
+    ros::Rate loop_rate(FRAMERATE);
     while(ros::ok()){
         publishImage();
-        ros::spinOnce();
+        //ros::spinOnce();
         loop_rate.sleep();
     }
 }
@@ -111,7 +121,7 @@ void Publisher::publishImage(){
 
     sensor_msgs::CameraInfoPtr
         ci(new sensor_msgs::CameraInfo(cinfo_->getCameraInfo()));
-    //camera_pub.publish(msg, ci);
+    camera_pub.publish(msg, ci);
     visionProxy->releaseImage(name);
 }
 
