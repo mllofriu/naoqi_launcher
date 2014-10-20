@@ -30,7 +30,7 @@ using namespace std;
 
 using namespace AL;
 
-#define FRAMERATE 5
+#define FRAMERATE 30
 
 /// <summary>
 /// Module to save current values to a file in each DCM iteration (each 10 ms)

@@ -102,6 +102,7 @@ void Publisher::publishInfo(){
 }
 
 void Publisher::publishImage(){
+    visionProxy->releaseImage(name);
     const ALImage* image = (const ALImage*) visionProxy->getImageLocal(name);
     sensor_msgs::ImagePtr msg(new sensor_msgs::Image);
     msg->header.stamp = ros::Time::now();
@@ -122,7 +123,6 @@ void Publisher::publishImage(){
     sensor_msgs::CameraInfoPtr
         ci(new sensor_msgs::CameraInfo(cinfo_->getCameraInfo()));
     camera_pub.publish(msg, ci);
-    visionProxy->releaseImage(name);
 }
 
 
